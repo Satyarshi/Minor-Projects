@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    flex-direction:column;
+}
+
+.root{
+    width:min(1200px,100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10rem;
+}
+
+.root img{
+    width:clamp(180px,30vw,500px);
+}
+
+#btn{
+    padding:15px 35px;
+    font-size:22px;
+    border:2px solid red;
+    background:#222;
+    color:#fff;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+#btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* Result Button */
+
+.result-btn{
+    margin-top:50px;
+
+    padding:15px 40px;
+    font-size:22px;
+    border:none;
+    border-radius:8px;
+    background:crimson;
+    color:white;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+
+    transition:.4s;
+}
+
+.result-btn.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+/* Shake Animation */
+
+.shake-left{
+    animation:shake-left .5s ease-in-out infinite;
+}
+
+.shake-right{
+    animation:shake-right .5s ease-in-out infinite;
+}
+
+@keyframes shake-left{
+
+    0%,100%{
+        transform:rotate(0);
+    }
+
+    50%{
+        transform:rotate(-25deg) translateY(-20px);
+    }
+
+}
+
+@keyframes shake-right{
+
+    0%,100%{
+        transform:rotate(0);
+    }
+
+    50%{
+        transform:rotate(25deg) translateY(-20px);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .root{
+        gap:2rem;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .root{
+        flex-direction:column;
+        gap:2rem;
+    }
+
+    .root img{
+        width:220px;
+    }
+
+}

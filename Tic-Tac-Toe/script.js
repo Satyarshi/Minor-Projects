@@ -84,3 +84,4 @@ reset.addEventListener("click", () => {
   boxes.classList.remove("blur");
   boxes.addEventListener("click", callback);
 });
+
